@@ -1,42 +1,41 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Project;
 use Illuminate\Http\Request;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ProjectController extends Controller
 {
     public function index()
     {
-        return view('project');
+        $data = Project::all();
+        return view('admin.masterproject',compact('data'));
     }
 
-    public function project()
-    {
-        return view('admin.masterproject');
-    }
     public function create()
     {
-        return view('admin.tambahproject');
+        
+    }
+
+    public function edit($id){
+        $data = Project::find($id);
+        return $data;
+    }
+
+    public function update(Request $request, $id)
+    {
+        Project::find($id)->update($request->all());
     }
 
     public function store(Request $request)
     {
-        // Validasi data dari form
-        $request->validate([
-            'project' => 'required|string|max:255',
-            'client' => 'required|integer|min:5',
-            'users' => 'required|string|max:255',
-        ]);
-        // Simpan data ke dalam database
-        Project::create([
-            'project' => $request->project,
-            'client' => $request->client,
-            'users' => $request->users,
-        ]);
-        
-        // Redirect ke halaman master siswa atau halaman lainnya setelah berhasil disimpan
-        return redirect()->route('masterproject')->with('success', 'Data project berhasil ditambahkan.');
+       Project::create($request->all());
+       
     }
+
+    public function delete($id)
+    {
+        Project::find($id)->delete();
+    }
+   
 }

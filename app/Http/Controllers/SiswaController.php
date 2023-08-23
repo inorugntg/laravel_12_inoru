@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use Symfony\Component\CssSelector\Node\FunctionNode;
+
 class SiswaController extends Controller
 {
     public function index()
     {
-        // $siswa = Siswa::all();
-        return view('admin.mastersiswa');
-        // , compact('siswa')
+        $data = Siswa::all();
+        return view('admin.mastersiswa',compact('data'));
     }
-    
+
     public function create()
     {
         return view('admin.tambahsiswa');
@@ -20,23 +21,50 @@ class SiswaController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data dari form
-        $request->validate([
-            'nama' => 'required|string|max:255',
-            'kelas' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'no_telpon' => 'required|integer|max:255',
+        $this->validate($request, [
+            'name' => 'required',
+            'about' => 'required',
+            'photo' => 'required'
+        ]);
+        // Produk::create($request->all());
+        $data = new Siswa();
+        $data->name = Str::upper($request->name);
+        $data->about = $request->about;
+        $data->photo = $request->photo;
+        $data->save();
+        return redirect()->route('admin.mastersiswa')->with('success', 'Produk Berhasil Ditambahkan!');
+    }
+
+    public function edit($id)
+    {
+        $data = Siswa::find($id);
+        return view('admin.editsiswa',compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'about' => 'required',
+            'photo' => 'required'
         ]);
 
-        // Simpan data ke dalam database
-        Siswa::create([
-            'nama' => $request->nama,
-            'kelas' => $request->kelas,
-            'email' => $request->email,
-            'no_telpon' => $request->no_telpon,
-        ]);
+        $data = Siswa::find($id);
 
-        // Redirect ke halaman master siswa atau halaman lainnya setelah berhasil disimpan
-        return redirect()->route('mastersiswa')->with('success', 'Data siswa berhasil ditambahkan.');
+        if (!$data) {
+            return redirect()->route('admin.mastersiswa')->with('error', 'Siswa tidak ditemukan.');
+        }
+
+        $data->name = Str::upper($request->name);
+        $data->about = $request->about;
+        $data->photo = $request->photo;
+        $data->save();
+
+        return redirect()->route('admin.mastersiswa')->with('success', 'Siswa berhasil diupdate!');
+    }
+
+    public function delete(Request $request,$id)
+    {
+        Siswa::find($id)->delete();
     }
 }

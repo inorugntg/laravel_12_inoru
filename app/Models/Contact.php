@@ -11,7 +11,8 @@ class Contact extends Model
 
     protected $guarded=[];
 
-    public function type(){
+    public function type()
+    {
         return $this->belongsTo(Contact_Type::class);
     }
     

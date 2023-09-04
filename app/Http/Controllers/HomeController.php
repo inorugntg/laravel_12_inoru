@@ -8,11 +8,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('admin.admin');
-    }
-
-    public function dashboard()
-    {
         return view('admin.dashboard');
     }
 }

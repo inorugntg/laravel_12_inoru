@@ -16,6 +16,25 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <style>
+        /* Add this CSS to your custom stylesheet */
+        .fixed-content-wrapper {
+            flex: 1;
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+            height: calc(100vh - 56px);
+            /* Adjust 56px according to your top bar height */
+        }
+
+        .sidebar {
+            background: linear-gradient(to bottom, #87CEEB, #1E90FF, #800080);
+        }
+
+        .custom-navbar {
+        background: linear-gradient(to right, #2c3e50, #34495e); /* Gradasi dari abu-abu gelap ke lebih terang */
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    }
+    </style>
 
 </head>
 
@@ -25,7 +44,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -40,8 +59,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="">
-                <!-- {{ route('admin.dashboard') }} -->
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -86,28 +104,22 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column fixed-content-wrapper">
 
             <!-- Main Content -->
             <div id="content">
-
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
+                <nav class="navbar navbar-expand navbar-light" style="background: linear-gradient(to right, #e0e0e0, #f5f5f5);"> <!-- Mengganti warna background topbar -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
-                        
                     </button>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <!-- Add this button inside the sidebar --
-
+                            <!-- Add this button inside the sidebar -->
                             <!-- Dropdown - Messages -->
-
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -139,10 +151,9 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
-
                 </nav>
+
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -205,7 +216,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
-   
+
 </body>
 
 </html>

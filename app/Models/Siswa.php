@@ -10,6 +10,12 @@ class Siswa extends Model
     use HasFactory;
 
     protected $guarded=[];
+
+    protected $fillable = [
+        'name',
+        'about',
+        'photo'
+    ];
     
     public function project(){
         return $this->hasMany(Project::class);

@@ -9,10 +9,18 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'project_name',
+        'project_date',
+        'photo',
+        'siswa_id'
+    ];
+    
+
     protected $guarded=[];
 
     public function siswa()
     {
-        return $this->belongsTo(Siswa::class);
+        return $this->belongsTo(Siswa::class);  
     }
 }

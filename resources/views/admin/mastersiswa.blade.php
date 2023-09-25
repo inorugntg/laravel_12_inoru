@@ -1,7 +1,7 @@
 @extends('admin.admin')
 
 @section('title', 'Master Siswa')
-@section('content-title', 'Master Siswa')
+@section('content_title', 'Master Siswa')
 @section('content')
 <div class="row">
     @if (session()->has('message'))
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="myTable">
                     <thead>
                         <tr>
                             <th style="width: 5%;">No</th>
@@ -40,7 +40,7 @@
                             <td class="d-flex justify-content-center">
                                 <a href="{{ route('siswa.edit', $siswa->id) }}" class="btn btn-warning mr-2">Edit</a> <!-- Added 'mr-2' class for right margin -->
                                 <a href="{{ route('siswa.delete', $siswa->id) }}" class="btn btn-danger"        onclick="event.preventDefault(); if (confirm('Apakah Anda yakin ingin menghapus data siswa?')) { document.getElementById('delete-form-{{ $siswa->id }}').submit(); }">
-                                    Hapus
+                                    Delete
                                 </a>
                                 <form id="delete-form-{{ $siswa->id }}" action="{{ route('siswa.delete', $siswa->id) }}" method="POST" style="display: none;">
                                     @csrf
@@ -55,4 +55,5 @@
         </div>
     </div>
 </div>
+
 @endsection

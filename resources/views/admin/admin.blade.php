@@ -10,6 +10,8 @@
     <meta name="author" content="">
 
     <title>@yield('title')</title>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -31,8 +33,8 @@
         }
 
         .custom-navbar {
-        background: linear-gradient(to right, #2c3e50, #34495e); /* Gradasi dari abu-abu gelap ke lebih terang */
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+        background: linear-gradient(to right, #e0e0e0, #000000); /* Gradient from light gray to black */
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
     }
     </style>
 
@@ -209,6 +211,13 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        let table = new DataTable('#myTable'); 
+    </script>
+
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->

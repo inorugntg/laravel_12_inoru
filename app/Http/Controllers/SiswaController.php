@@ -96,19 +96,14 @@ class SiswaController extends Controller
     public function delete($id)
     {
         $data = Siswa::find($id);
-
         if (!$data) {
             return redirect()->route('siswa.index')->with('error', 'Siswa tidak ditemukan.');
         }
-
         $photoPath = './storage/' . $data->photo;
-
         if (file_exists($photoPath)) {
             unlink($photoPath); // Delete the photo file from the file system
         }
-
         $data->delete();
-
         return redirect()->route('siswa.index')->with('message', 'Siswa berhasil dihapus!');
     }
 }

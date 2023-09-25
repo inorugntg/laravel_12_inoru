@@ -29,12 +29,8 @@ Route::get('/admin/siswa/{id}/edit', [SiswaController::class, 'edit'])->name('si
 Route::put('/admin/siswa/{id}', [SiswaController::class, 'update'])->name('siswa.update'); // Change to PUT
 Route::delete('/admin/siswa/{id}', [SiswaController::class, 'delete'])->name('siswa.delete');
 
-Route::get('/admin/project',[ProjectController::class,'index'])->name('project.index');
-Route::get('/admin/project/create',[ProjectController::class,'create'])->name('project.create');
-Route::post('/admin/project',[ProjectController::class,'store'])->name('project.store');
-Route::get('/admin/project/{id}/edit',[ProjectController::class,'edit'])->name('project.edit');
-Route::get('/admin/project/{id}',[ProjectController::class,'update'])->name('project.update');
-Route::delete('/admin/project/{id}',[ProjectController::class,'delete'])->name('project.delete');
+Route::resource('/admin/project',ProjectController::class); 
+Route::get('admin/project/{id}/create', [ProjectController::class, 'add'])->name('project.add');
 
 Route::get('/admin/contact',[ContactController::class,'index'])->name('contact.index');
 Route::get('/admin/contact/create',[ContactController::class,'create'])->name('contact.create');

@@ -1,13 +1,13 @@
 @extends('admin.admin')
 
 @section('title', 'Tambah Data Siswa')
-@section('content-title', 'Tambah Data Siswa')
+@section('content_title', 'Tambah Data Siswa')
 @section('content')
 <div class="row">
     <div class="col-lg-12">
         <div class="card card-shadow" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
             <div class="card-header">
-                <h3 class="card-title">@yield('content-title')</h3>
+                <h3 class="card-title">@yield('content_title')</h3>
                 <div class="card-tools">
                     <a href="{{ route('siswa.index')}}" class="btn btn-secondary">Kembali</a>
                 </div>

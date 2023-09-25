@@ -38,7 +38,7 @@
                         <label for="photo">Photo</label>
                         <input type="file" name="photo" class="form-control-file">
                         @if ($data->photo)
-                        <img class="img-thumbnail" width="200" height="200" src="{{ asset($data->photo) }}" alt="Photo">
+                        <img class="img-thumbnail" src="/storage/{{ $data->photo }}" alt="Siswa Photo">
                         @endif
                     </div>
                     <div class="form-group">

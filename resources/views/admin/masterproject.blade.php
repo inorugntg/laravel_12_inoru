@@ -1,48 +1,57 @@
 @extends('admin.admin')
-
 @section('title', 'Master Project')
-@section('content-title','Master Project')
+@section('content_title','Master Project')
 @section('content')
-
-<div class="card">
-    <div class="card-header">
-        <div class="d-flex justify-content-between align-items-center">
-            <h3 class="card-title">@yield('content-title')</h3>
-            <div class="card-tools">
-                <a href="{{ route('project.create')}}" class="btn btn-success">Add Data</a>
+<div class="row">
+    @if (session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+    @endif
+    <div class="col-md-5">
+        <div class="card shadow">
+            <div class="card-header" style="background: linear-gradient(90deg, #98FB98, #FFA500);">
+                <h6>Data Siswa</h6>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>No</td>
+                            <td>Name</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    @foreach ($siswas as $siswa)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$siswa->name}}</td>
+                        <td>
+                            <a onclick="show({{ $siswa->id }})" class="btn btn-sm btn-info"><i class="fas fa-folder-open"></i></a>
+                            <a class="btn btn-sm btn-success" href="{{ route('project.add', $siswa->id) }}"><i class="fas fa-plus"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </div>
-    <div class="card-body">
-       <!-- Bagian tabel dalam card-body -->
-<table class="table">
-    <thead>
-        <th>Project Name</th>
-        <th>Project Date</th>
-        <th>Photo</th>
-        <th>Action</th>
-    </thead>
-    <tbody>
-        @foreach ($data as $project)
-            <tr>
-                <td>{{ $project->project_name }}</td>
-                <td>{{ $project->project_date }}</td>
-                <td>{{ $project->photo }}</td>
-                <td>
-                    <a href="{{ route('project.edit', $project->id) }}" class="btn btn-warning">Edit</a>
-                    <a href="{{ route('project.delete', $project->id) }}" class="btn btn-danger" onclick="event.preventDefault(); if (confirm('Apakah Anda yakin ingin menghapus data project?')) { document.getElementById('delete-form-{{ $project->id }}').submit(); }">
-                        Hapus
-                    </a>
-                    <form id="delete-form-{{ $project->id }}" action="{{ route('project.delete', $project->id) }}" method="POST" style="display: none;">
-                        @csrf
-                        @method('DELETE')
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
-
+    <div class="col-md-7">
+        <div class="card shadow">
+            <div class="card-header" style="background: linear-gradient(319deg,#ffcb43 0%,#ff6425 37%, #ff0016 100%);">
+                <h6>List Project</h6>
+            </div>
+            <div id="project" class="card-body">
+                <h6 class="text-center">Silahkan pilih siswa terlebih dahulu</h6>
+            </div>
+        </div>
     </div>
 </div>
+<script>
+    function show(id) {
+        $.get('project/' + id, function(data) {
+            $('#project').html(data);
+        });
+    }
+</script>
 @endsection

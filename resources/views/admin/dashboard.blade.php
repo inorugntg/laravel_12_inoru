@@ -3,135 +3,111 @@
 @section('title', 'dashboard')
 
 @section('content')
-<!--About-->
-<section id="dashboard">
-  <div class="container-fluid">
+<div class="main-panel">
+  <div class="content-wrapper">
     <div class="row">
-      <main class="col-lg-10 pt-6 px-8">
-
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <h1 class="h2"><i class="fa fa-tachometer"></i> Dashboard</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-              <button class="btn btn-sm btn-primary">Share</button>
-              <button class="btn btn-sm btn-primary">Export</button>
-            </div>
-            <button class="btn btn-sm btn-primary dropdown-toggle">
-              <i class="fa fa-calendar"></i>
-              This week
-            </button>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-12 pr-0 mb-3">
-            <div class="card text-white" style="background: linear-gradient(to bottom, #007bff, #8a2be2, #ff1493);">
-              <div class="card-header"><i class="fa fa-shopping-bag"></i> New Orders</div>
-              <div class="card-body">
-                <h3 class="card-title">150</h3>
+      <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div>
+                <h4 class="card-title">Siswa</h4>
+                <h2 class="text-primary mb-0">4</h2>
               </div>
-              <a class="card-footer text-right" href="#">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-12 pr-0 mb-3">
-            <div class="card text-white" style="background: linear-gradient(to bottom, #007bff, #8a2be2, #ff1493);">
-              <div class="card-header"><i class="fa fa-bar-chart"></i> Bounce Rate</div>
-              <div class="card-body">
-                <h3 class="card-title">53%</h3>
-              </div>
-              <a class="card-footer text-right" href="#">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-12 pr-0 mb-3">
-            <div class="card text-white" style="background: linear-gradient(to bottom, #007bff, #8a2be2, #ff1493);">
-              <div class="card-header"><i class="fa fa-user-plus"></i> User Registrations</div>
-              <div class="card-body">
-                <h3 class="card-title">44</h3>
-              </div>
-              <a class="card-footer text-right" href="#">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-12 pr-0 mb-3">
-            <div class="card text-white" style="background: linear-gradient(to bottom, #007bff, #8a2be2, #ff1493);">
-              <div class="card-header"><i class="fa fa-pie-chart"></i> Unique Visitor</div>
-              <div class="card-body">
-                <h3 class="card-title">65</h3>
-              </div>
-              <a class="card-footer text-right" href="#">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-        <!-- Pie chart using HTML and Bootstrap -->
-        <div class="row">
-          <div class="col-lg-6 offset-lg-3">
-            <div class="text-center">
-            <div class="pie-chart mb-4" style="background: linear-gradient(to bottom, #007bff, #8a2be2, #ff1493);">
-                <div class="slice slice-blue" style="transform: rotate(0deg);"></div>
-                <div class="slice slice-green" style="transform: rotate(30deg);"></div>
-                <div class="slice slice-yellow" style="transform: rotate(75deg);"></div>
-                <div class="slice slice-red" style="transform: rotate(120deg);"></div>
-              </div>
-              <div class="d-flex justify-content-between">
-                <div>New Orders</div>
-                <div>Bounce Rate</div>
-                <div>User Registrations</div>
-                <div>Unique Visitor</div>
+              <div class="ml-auto">
+                <div class="icon-box bg-primary">
+                  <i class="mdi mdi-calendar-text"></i>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <style>
-          .bg-gradient-dark {
-            background: linear-gradient(to bottom, #007bff, #8a2be2, #ff1493);
-            /* Ganti dengan warna yang Anda inginkan */
-          }
-
-          /* CSS untuk grafik lingkaran */
-          .pie-chart {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: #f1f1f1;
-            display: inline-block;
-          }
-
-          .slice {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            clip: rect(0, 100px, 200px, 0);
-          }
-
-          .slice-blue {
-            background-color: #007bff;
-          }
-
-          .slice-green {
-            background-color: #28a745;
-          }
-
-          .slice-yellow {
-            background-color: #ffc107;
-          }
-
-          .slice-red {
-            background-color: #dc3545;
-          }
-        </style>
-
+      </div>
+      <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div>
+                <h4 class="card-title">Project</h4>
+                <h2 class="text-success mb-0">8</h2>
+              </div>
+              <div class="ml-auto">
+                <div class="icon-box bg-success">
+                  <i class="mdi mdi-check"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+    <!-- Tempatkan div untuk grafik di sini -->
+    <div class="row">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <!-- Tempatkan grafik di sini -->
+            <canvas id="line-chart" class="transaction-chart" width="700" height="365"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    <style>
+     
+    </style>
+    <!-- partial -->
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+  // Data untuk grafik garis
+  var lineChartData = {
+    labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
+    datasets: [{
+        label: 'Siswa',
+        borderColor: '#007bff',
+        backgroundColor: 'transparent',
+        data: [2, 4, 6, 8, 10],
+      },
+      {
+        label: 'Project',
+        borderColor: '#28a745',
+        backgroundColor: 'transparent',
+        data: [3, 5, 7, 9, 11],
+      },
+    ],
+  };
+
+  // Konfigurasi grafik garis
+  var lineChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      display: true,
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+      },
+      y: {
+        beginAtZero: true,
+      },
+    },
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top', // Ubah posisi legenda ke atas
+      },
+    },
+  };
+  // Mendapatkan elemen canvas dan menginisialisasi grafik
+  var ctx = document.getElementById('line-chart').getContext('2d');
+  var lineChart = new Chart(ctx, {
+    type: 'line',
+    data: lineChartData,
+    options: lineChartOptions,
+  });
+</script>
 @endsection

@@ -85,7 +85,6 @@ class SiswaController extends Controller
             if ($data->photo && file_exists($data->photo)) {
                 unlink($data->photo);
             }
-
             $data->photo = $nama_file;
         }
         $data->save();

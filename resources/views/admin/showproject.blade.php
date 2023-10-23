@@ -22,11 +22,11 @@
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this project?')">
-                <i class="fas fa-trash"></i>
+                <i class="fas fa-trash">Delete</i>
             </button>
         </form>
         <a href="{{ route('project.edit', $item->id) }}" class="btn btn-sm btn-success">
-            <i class="fas fa-edit"></i>
+            <i class="fas fa-edit">Edit</i>
         </a>
     </div>
 </div>

@@ -8,6 +8,10 @@
     <div class="alert alert-success">
         {{ session()->get('message') }}
     </div>
+    @elseif(session()->has('error'))
+    <div class="alert alert-danger">
+        {{ session()->get('error') }}
+    </div>
     @endif
     <div class="col-lg-12">
         <div class="card card-shadow" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
@@ -39,7 +43,7 @@
                             <td><img class="img-thumbnail" width="200" height="200" src="/storage/{{ $siswa->photo }}" alt="Photo"></td>
                             <td class="d-flex justify-content-center">
                                 <a href="{{ route('siswa.edit', $siswa->id) }}" class="btn btn-warning mr-2">Edit</a> <!-- Added 'mr-2' class for right margin -->
-                                <a href="{{ route('siswa.delete', $siswa->id) }}" class="btn btn-danger"        onclick="event.preventDefault(); if (confirm('Apakah Anda yakin ingin menghapus data siswa?')) { document.getElementById('delete-form-{{ $siswa->id }}').submit(); }">
+                                <a href="{{ route('siswa.delete', $siswa->id) }}" class="btn btn-danger" onclick="event.preventDefault(); if (confirm('Apakah Anda yakin ingin menghapus data siswa?')) { document.getElementById('delete-form-{{ $siswa->id }}').submit(); }">
                                     Delete
                                 </a>
                                 <form id="delete-form-{{ $siswa->id }}" action="{{ route('siswa.delete', $siswa->id) }}" method="POST" style="display: none;">

@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:admin'])->except('index','show');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -93,11 +97,22 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        
+        $messages = [
+            'project_name.required' => 'The project name field is required.',
+            'project_name.min' => 'The project name must be at least :min characters.',
+            'project_name.max' => 'The project name may not be greater than :max characters.',
+            'project_date.required' => 'The project date field is required.',
+            'project_date.date' => 'The project date must be a valid date.',
+            'photo.required' => 'The photo field is required.',
+            'photo.mimes' => 'The photo must be a file of type: :values.',
+        ];
+
         $this->validate($request, [
             'project_name' => 'required|string|min:5|max:255', // Adjusted validation rule for project_name
             'project_date' => 'required|date',
             'photo' => 'nullable|mimes:png,jpg,jpeg|max:2048', // Allowing nullable photo update
-        ]);
+        ], $messages);
 
         $data = Project::find($id);
 

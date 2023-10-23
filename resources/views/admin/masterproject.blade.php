@@ -7,6 +7,10 @@
     <div class="alert alert-success">
         {{ session()->get('message') }}
     </div>
+    @elseif(session()->has('error'))
+    <div class="alert alert-danger">
+        {{ session()->get('error') }}
+    </div>
     @endif
     <div class="col-md-5">
         <div class="card shadow">
@@ -27,8 +31,8 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$siswa->name}}</td>
                         <td>
-                            <a onclick="show({{ $siswa->id }})" class="btn btn-sm btn-info"><i class="fas fa-folder-open"></i></a>
-                            <a class="btn btn-sm btn-success" href="{{ route('project.add', $siswa->id) }}"><i class="fas fa-plus"></i></a>
+                            <a onclick="show({{ $siswa->id }})" class="btn btn-sm btn-info"><i class="fas fa-folder-open"></i>Show</a>
+                            <a class="btn btn-sm btn-success" href="{{ route('project.add', $siswa->id) }}"><i class="fas fa-plus"></i>Add</a>
                         </td>
                     </tr>
                     @endforeach
